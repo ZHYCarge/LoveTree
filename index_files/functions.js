@@ -65,7 +65,6 @@ function timeElapse(date){
 		var days = Math.floor(seconds / (3600 * 24));
 		var result = "第 <span class=\"digit\">" + days + "</span> 天";
 	}
-	console.log(dayss);
 
 	$("#clock").html(result);
 }
