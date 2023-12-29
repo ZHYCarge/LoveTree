@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<img src="https://ajlovechina.github.io/loveBalloon/static/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
+<img src="./index_files/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
 <audio class="song-audio-autoplay" controls loop style="display: none;visibility: hidden">
     <source src="./index_files/music.mp3" type="audio/mp3"/>
 </audio>
@@ -68,14 +68,30 @@
 </div>
 
 <script type="text/javascript">
-    $('#code').html(config.lines.map(item => {
-        return `<span class="say">${item}</span><br>
+    var aaa = dayss = new Date(config.datearrive) - new Date() > 0;
+    if (aaa){
+        $('#code').html(config.lines1.map(item => {
+            return `<span class="say">${item}</span><br>
 						<span class="say"> </span><br>`
-    }).reduce((a, b) => {
-        return a + b;
-    }))
-    $("#clock-box-inside-text").html(`${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">已经相恋了</span>`)
-</script>
+        }).reduce((a, b) => {
+            return a + b;
+        }))
+        $("#clock-box-inside-text").html(`${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">距离下次相聚</span>`)
+
+    }
+    else
+    {
+        $('#code').html(config.lines2.map(item => {
+            return `<span class="say">${item}</span><br>
+						<span class="say"> </span><br>`
+        }).reduce((a, b) => {
+            return a + b;
+        }))
+        $("#clock-box-inside-text").html(`今天是${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">相恋的</span>`)
+
+    }
+
+    </script>
 
 <script>
     (function () {
